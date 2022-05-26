@@ -2,13 +2,12 @@ dbt_cicd_poc:
   outputs:
     prod:
       account: "{{ env_var('DBT_ACCOUNT') }}"
-      database: demo2
+      database: DEMO_DB
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: ACCOUNTADMIN
       schema: my_schema
       threads: 1
       type: snowflake
-      # user: _user_
       user: "{{ env_var('DBT_USER') }}"
       warehouse: COMPUTE_WH
   target: prod
