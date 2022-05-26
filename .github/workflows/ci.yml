@@ -8,8 +8,9 @@ on:
 
 
 jobs:
-  # dbt:
-  #   name: 'DBT'
+  dbt:
+    name: 'DBT'
+    runs-on: ubuntu-latest
 
     steps:
     - name: dbt-action
