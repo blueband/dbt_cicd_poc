@@ -1,0 +1,13 @@
+dbt_cicd_poc:
+  outputs:
+    prod:
+      account: _account_
+      database: demo2
+      password: _password_
+      role: ACCOUNTADMIN
+      schema: my_schema
+      threads: 1
+      type: snowflake
+      user: _user_
+      warehouse: COMPUTE_WH
+  target: prod
