@@ -1,15 +1,22 @@
-Welcome to your new dbt project!
+Welcome to End-to-End DBT and Snowflake deployment with CI integration with GA!
 
-### Using the starter project
+### What you will need!
 
-Try running the following commands:
-- dbt run
-- dbt test
+1. Snowflake username
+2. Snowflake password
+3. Snowflake Account
+4. Snowflake database name (existing database)
+5. Snowflake Datawarehouse
+
+### What to do
+1. clone this repo
+   `git clone https://github.com/blueband/dbt_cicd_poc.git`
+2. setup the follow Enviroment variable as Secret in Github Action
+   1. DBT_PASSWORD
+   2. DBT_USER
+   3. DBT_ACCOUNT
+
+once valid parameter are set in the GA secret vault
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+You and your team can start push or raise PR into the main branch
