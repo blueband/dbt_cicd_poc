@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: check working directory
+      run: ls -al
     - name: dbt-action
       uses: mwhitaker/dbt-action@master
       with:
