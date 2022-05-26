@@ -18,5 +18,6 @@ Welcome to End-to-End DBT and Snowflake deployment with CI integration with GA!
 
 once valid parameter are set in the GA secret vault
 
+### Check under Action tab for your result
 
 You and your team can start push or raise PR into the main branch
