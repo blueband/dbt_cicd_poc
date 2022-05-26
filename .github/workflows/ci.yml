@@ -22,7 +22,7 @@ jobs:
           DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
 
   
-
+# 
   
   # Another approach below
   # dbt:
