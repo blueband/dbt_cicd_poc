@@ -6,15 +6,20 @@ on:
       - master
 
 
-name: dbt-action
-uses: mwhitaker/dbt-action@master
-with:
-  dbt_command: "dbt run --profiles-dir ."
-  env:
-    DBT_PROFILES_DIR: ./
-    DBT_USER: ${{ secrets.DBT_USER }}
-    DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
-    DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
+jobs:
+  dbt:
+    name: 'DBT'
+
+    steps:
+    - name: dbt-action
+      uses: mwhitaker/dbt-action@master
+      with:
+        dbt_command: "dbt run --profiles-dir ."
+        env:
+          DBT_PROFILES_DIR: ./
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+          DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
 
   
 
