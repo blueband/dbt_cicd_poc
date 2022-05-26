@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-python@v1
         with:
-          python-version: "3.9.10"
+          python-version: "3.9.12"
       - run: pip3 install dbt-core dbt-snowflake
       - run: dbt --version
       # - run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
