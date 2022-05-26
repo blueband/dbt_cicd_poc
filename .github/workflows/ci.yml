@@ -12,15 +12,15 @@ env:
   DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
 
 jobs:
-  - name: dbt-action
-    uses: mwhitaker/dbt-action@master
-    with:
-      dbt_command: "dbt run --profiles-dir ."
-      env:
-        DBT_PROFILES_DIR: ./
-        DBT_USER: ${{ secrets.DBT_USER }}
-        DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
-        DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
+- name: dbt-action
+  uses: mwhitaker/dbt-action@master
+  with:
+    dbt_command: "dbt run --profiles-dir ."
+    env:
+      DBT_PROFILES_DIR: ./
+      DBT_USER: ${{ secrets.DBT_USER }}
+      DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+      DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
 
   
 
