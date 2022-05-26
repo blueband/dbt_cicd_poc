@@ -8,8 +8,8 @@ on:
 
 
 jobs:
-  dbt:
-    name: 'DBT'
+  # dbt:
+  #   name: 'DBT'
 
     steps:
     - name: dbt-action
