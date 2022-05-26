@@ -7,46 +7,54 @@ on:
   pull_request:
 
 
+env:
+  DBT_PROFILES_DIR: ./
+  DBT_USER: ${{ secrets.DBT_USER }}
+  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+
+
 jobs:
-  dbt:
-    name: 'DBT'
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: dbt-action
-      uses: mwhitaker/dbt-action@master
-      with:
-        dbt_command: "dbt run --profiles-dir ."
-        dbt_project_folder: "."
-      env:
-        DBT_USER: ${{ secrets.DBT_USER }}
-        DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
-        # DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
-    - name: Get the result
-      if: ${{ always() }}
-      run: echo "${{ steps.dbt-run.outputs.result }}"
-      shell: bash
-
-
-
-  
-# 
-  
-  # Another approach below
   # dbt:
-  #   name: dbt
+  #   name: 'DBT'
   #   runs-on: ubuntu-latest
 
   #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: actions/setup-python@v1
-  #       with:
-  #         python-version: "3.9.x"
-  #     - run: pip3 install dbt
-  #     - run: dbt --version
-  #     - run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
-  #       shell: bash
-  #       env:
-  #         KEYFILE: ${{secrets.DBT_GOOGLE_BIGQUERY_KEYFILE}}
-  #     - run: dbt run
-  #     - run: dbt test
+  #   - name: dbt-action
+  #     uses: mwhitaker/dbt-action@master
+  #     with:
+  #       dbt_command: "dbt run --profiles-dir ."
+  #       dbt_project_folder: "."
+  #     env:
+  #       DBT_USER: ${{ secrets.DBT_USER }}
+  #       DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+  #       # DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT}}
+  #   - name: Get the result
+  #     if: ${{ always() }}
+  #     run: echo "${{ steps.dbt-run.outputs.result }}"
+  #     shell: bash
+
+
+
+  
+
+  
+  # Another approach below
+  dbt:
+    name: dbt
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.9.x"
+      - run: pip3 install dbt
+      - run: dbt --version
+      # - run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
+        shell: bash
+        env:
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+          # KEYFILE: ${{secrets.DBT_GOOGLE_BIGQUERY_KEYFILE}}
+      - run: dbt run
+      - run: dbt test

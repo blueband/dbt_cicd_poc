@@ -3,11 +3,13 @@ dbt_cicd_poc:
     prod:
       account: _account_
       database: demo2
-      password: _password_
+      # password: _password_
+      password: "{{ env_var('DBT_PASSWORD') }}"
       role: ACCOUNTADMIN
       schema: my_schema
       threads: 1
       type: snowflake
-      user: _user_
+      # user: _user_
+      user: "{{ env_var('DBT_USER') }}"
       warehouse: COMPUTE_WH
   target: prod
