@@ -33,4 +33,4 @@ jobs:
           DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
           DBT_ACCOUNT: ${{ secrets.DBT_ACCOUNT }}
       - run: dbt run
-      - run: dbt test
+      # - run: dbt test
