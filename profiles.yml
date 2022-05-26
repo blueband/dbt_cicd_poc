@@ -1,9 +1,8 @@
 dbt_cicd_poc:
   outputs:
     prod:
-      account: _account_
+      account: "{{ env_var('DBT_ACCOUNT') }}"
       database: demo2
-      # password: _password_
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: ACCOUNTADMIN
       schema: my_schema
